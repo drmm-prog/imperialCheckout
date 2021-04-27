@@ -12,7 +12,7 @@ def run_tests(testFuncs):
         num_tests += 1
     return (num_tests, num_passed)
 
-#Canonical example = £1.55 (one deal applies to bananas -> 100 + 25 + 30)
+#Canonical example = 155 (one deal applies to bananas -> 100 + 25 + 30)
 tests = [lambda: ch.checkout(['B', 'A', 'B', 'P', 'B'], {'A': 25, 'B': 40, 'P': 30}) == 155]
 
 #Check that an empty cart costs nothing
@@ -62,7 +62,7 @@ tests.append(lambda: ch.checkout(['A','A','A','A','A','A','A'], {'A': 25, 'B': 4
 #Check that two bananas are 2 x banana price
 tests.append(lambda: ch.checkout(['B','B'], {'A': 25, 'B': 40, 'P': 30}) == 80)
 
-#Check that three bananas are £1
+#Check that three bananas are 100
 tests.append(lambda: ch.checkout(['B','B','B'], {'A': 25, 'B': 40, 'P': 30}) == 100)
 
 #Check no response to banana price change for deal with three (deal is fixed)
@@ -71,7 +71,7 @@ tests.append(lambda: ch.checkout(['B','B','B'], {'A': 30, 'B': 75, 'P': 30}) == 
 #Check surplus bananas added on top of deal  correctly  
 tests.append(lambda: ch.checkout(['B','B','B','B','B'], {'A': 25, 'B': 40, 'P': 30}) == 180)
 
-#Check multiple of deal: six bananas are £2
+#Check multiple of deal: six bananas are 200
 tests.append(lambda: ch.checkout(['B','B','B','B','B','B'], {'A': 25, 'B': 40, 'P': 30}) == 200)
 
 #Check surplus bananas added correctly (including multiples of deal)
